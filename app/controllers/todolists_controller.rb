@@ -5,7 +5,8 @@ class TodolistsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    tags = Vision.get_image_data(list_params[:image])#createアクション内に以下の記述をすることで、投稿した画像を Vision.get_image_data(list_params[:image]) でAPI側に渡しています。
+    @list.score = Language.get_data(list_params[:body])#createアクション内に記述することで、投稿した本文を Language.get_data(list_params[:body]) でAPI側に渡しています。
+    tags = Vision.get_image_data(list_params[:image])#createアクション内に記述することで、投稿した画像を Vision.get_image_data(list_params[:image]) でAPI側に渡しています。
     if @list.save
       tags.each do |tag|#API側から返ってきた値をもとに、タグを作成しています
         @list.tags.create(name: tag)
