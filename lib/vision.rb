@@ -4,6 +4,14 @@ require 'json'
 require 'net/https'
 
 module Vision
+
+  #LABEL_TRANSLATIONS = {#画像のタグを日本語にする
+    #'Cloud' => '雲',
+    #'Sky' => '空',
+    #'car' => '車',
+    # 他に必要なラベルがあればここに追加
+  #}.freeze
+
   class << self
     def get_image_data(image_file)
       # APIのURL作成
@@ -39,6 +47,8 @@ module Vision
         raise error['message']
       else
         response_body['responses'][0]['labelAnnotations'].pluck('description').take(3)
+        #english_labels = response_body['responses'][0]['labelAnnotations'].pluck('description').take(3)#画像のタグを日本語にする
+        #japanese_labels = english_labels.map { |label| LABEL_TRANSLATIONS[label] || label }#画像のタグを日本語にする
       end
     end
   end
