@@ -8,11 +8,14 @@
       <% end %>
       <div class="list-comment">
         <%= link_to todolist_path(list.id) do %><!--do~end内をリンクにしてる-->
-          <span class="list-body"><%= list.body %></span>
-          <span class="sentiment-score">本文の感情分析スコア<%= list.score %></span>
           <span class="list-title"><%= list.title %></span>
+          <span class="list-body"><%= list.body %></span>
+          <% if list.score < -0.7 %>
+            <p class="sentiment-score"><small>※削除推奨</small></p>
+          <% end %>
         <% end %>
       </div>
     </div>
   <% end %>
 </div>
+

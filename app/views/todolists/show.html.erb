@@ -2,7 +2,9 @@
 <p><%= @list.title %></p>
 <h2>本文</h2>
 <p><%= @list.body %></p>
-<p class="sentiment-score">本文の感情分析スコア[<%= @list.score %>]</p>
+<% if @list.score < -0.7 %>
+  <p class="sentiment-score"><small>※削除推奨</small></p>
+<% end %>
 <h2>画像</h2>
 <% if @list.image.attached? %>
   <%= link_to(image_tag(@list.image.variant(resize: '300x300')), @list.image, data: { lightbox: 'group',title: '投稿画像'}) %>

@@ -49,19 +49,35 @@ main {
 .list-wrap {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between; /* 左右の余白を均等に */
 }
 
 .list-box {
-  width: 200px;
-  height: 350px;
+  width: 250px;
+  height: 300px;
   margin: 10px;
+  width: calc(200px - 10px); /* 画面幅の1/3で、左右には5pxの余白を考慮 */
   position: relative;
+  background-color: #ccc;
+}
+
+.list-box a {
+  text-decoration: none;
+}
+
+.list-box img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* 画像を中央に配置 */
+  padding: 5px;
 }
 
 .list-comment {
-  width: 200px;
+  width: 190px;
   position: absolute;
   left: 0;
+  padding: 5px;
 }
 
 .list-body {
@@ -75,7 +91,7 @@ main {
 
 .sentiment-score {
   display: block;
-  color: gray;
+  color: #FF0000;
   font-size: 14px;
   overflow: hidden;
   white-space: nowrap;
@@ -89,6 +105,10 @@ main {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.list-comment a:hover {
+  text-decoration: none; /* 下線を非表示にする */
 }
 
 .label {
