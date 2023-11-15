@@ -5,7 +5,7 @@
 <p class="sentiment-score">本文の感情分析スコア[<%= @list.score %>]</p>
 <h2>画像</h2>
 <% if @list.image.attached? %>
-  <%= image_tag @list.image.variant(resize:'300x300') %>
+  <%= link_to(image_tag(@list.image.variant(resize: '300x300')), @list.image, data: { lightbox: 'group',title: '投稿画像'}) %>
 <% end %>
 <div class="tag-box">
 <% @list.tags.each do |tag| %>

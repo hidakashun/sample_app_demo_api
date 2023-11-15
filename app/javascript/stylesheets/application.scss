@@ -1,0 +1,114 @@
+@use '~bootstrap/scss/bootstrap';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header, h1, nav, .list-comment {
+  font-family: 'Kaushan Script', cursive, sans-serif;
+}
+
+header {
+  width: 90%;
+  padding: 15px 0;
+  margin: 30px auto 0;
+  text-align: center;
+  border-top: solid 5px #000000;
+}
+
+header .headline {
+  font-size: 32px;
+}
+
+nav {
+  width: 880px;
+  margin: 0 auto;
+  border-top: solid 0.7px #000000;
+  border-bottom: solid 0.7px #000000;
+}
+
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+main {
+  width: 880px;
+  margin: 0 auto;
+}
+
+.list-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-box {
+  width: 200px;
+  height: 350px;
+  margin: 10px;
+  position: relative;
+}
+
+.list-comment {
+  width: 200px;
+  position: absolute;
+  left: 0;
+}
+
+.list-body {
+  display: block;
+  color: gray;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;}
+
+.list-title {
+  display: block;  font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.label {
+  background-color: #337ab7;
+  font-weight: 500;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+
+/*lightbox追記修正*/
+.lightboxOverlay{/*拡大時のモーダル*/
+  widows: 100% !important;
+}
+.lb-outerContainer {
+  width: calc(100% - 20px) !important;
+  max-width: 500px;/*拡大時の最大幅*/
+}
+
+.lb-outerContainer{
+  height: auto !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lb-image{
+  width: 100% !important;
+  height: auto !important;
+}
