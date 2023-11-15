@@ -1,14 +1,18 @@
 <div class="list-wrap">
-<% @lists.each do |list| %>
-  <div class="list-box">
-    <% if list.image.attached? %>
-      <%= image_tag list.image.variant(resize:'200x200') %>
-    <% end %>
-    <div class="list-comment">
-      <span class="list-body"><%= list.body %></span>
-      <span class="sentiment-score">本文の感情分析スコア<%= list.score %></span>
-      <span class="list-title"><%=link_to list.title, todolist_path(list.id) %></span>
+  <% @lists.each do |list| %>
+    <div class="list-box">
+      <% if list.image.attached? %>
+        <%= link_to todolist_path(list.id) do %><!--do~end内をリンクにしてる-->
+          <%= image_tag list.image.variant(resize: '200x200') %>
+        <% end %>
+      <% end %>
+      <div class="list-comment">
+        <%= link_to todolist_path(list.id) do %><!--do~end内をリンクにしてる-->
+          <span class="list-body"><%= list.body %></span>
+          <span class="sentiment-score">本文の感情分析スコア<%= list.score %></span>
+          <span class="list-title"><%= list.title %></span>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
