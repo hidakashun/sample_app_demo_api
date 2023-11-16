@@ -3,13 +3,9 @@
     <div class="list-box">
       <%= link_to todolist_path(list.id) do %><!--do~end内をリンクにしてる-->
         <div class="image-box">
-        
-        
           <% if list.image.attached? %>
               <%= image_tag list.image.variant(resize: '200x200') %>
           <% end %>
-        
-        
         </div>
       <div class="list-comment">
           <span class="list-title"><%= list.title %></span>
