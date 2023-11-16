@@ -1,20 +1,24 @@
 <div class="list-wrap">
   <% @lists.each do |list| %>
     <div class="list-box">
-      <% if list.image.attached? %>
-        <%= link_to todolist_path(list.id) do %><!--do~end内をリンクにしてる-->
-          <%= image_tag list.image.variant(resize: '200x200') %>
-        <% end %>
-      <% end %>
+      <%= link_to todolist_path(list.id) do %><!--do~end内をリンクにしてる-->
+        <div class="image-box">
+        
+        
+          <% if list.image.attached? %>
+              <%= image_tag list.image.variant(resize: '200x200') %>
+          <% end %>
+        
+        
+        </div>
       <div class="list-comment">
-        <%= link_to todolist_path(list.id) do %><!--do~end内をリンクにしてる-->
           <span class="list-title"><%= list.title %></span>
           <span class="list-body"><%= list.body %></span>
           <% if list.score < -0.7 %>
             <p class="sentiment-score"><small>※削除推奨</small></p>
           <% end %>
-        <% end %>
       </div>
+      <% end %>
     </div>
   <% end %>
 </div>
