@@ -2,11 +2,13 @@
   <h1>編集画面</h1>
   <%= form_with model:@list, url:"/todolists/#{@list.id}", local:true do |f| %>
     <h4>タイトル</h4>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
     <h4>本文</h4>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, rows: '4', class: 'form-control' %>
     <h4>画像</h4>
+    <h6>現在表示されている画像</h6>
+    <p><%= image_tag @list.image.variant(resize: '250x250') %></p>
     <%= f.file_field :image %>
     <%= f.submit '保存' %>
   <% end %>
-</div>
+</div><%= f.text_area :body
