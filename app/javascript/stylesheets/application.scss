@@ -59,7 +59,6 @@ main {
   overflow: hidden;
 }
 
-
 video {
   position: absolute;
   top: 0;
@@ -166,13 +165,21 @@ video {
 .show-body {
   overflow-wrap: break-word;
   width: 300px;
-  max-height: 3em; /* 3行分の高さまで表示 */
+  max-height: 5em; /* 3行分の高さまで表示 */
   overflow-y: auto; /* コンテンツが3行を超えたらスクロール表示 */
 }
 
 .action-link {
-  display: inline-block;
-  margin-right: 10px; /* リンク間の間隔を調整する場合は適切な値を設定 */
+  display: flex;
+}
+
+.link-item {
+  text-decoration: none; /* リンクの下線を非表示にする */
+  margin: 10px 30px; /* リンクの外側の余白（必要に応じて調整） */
+}
+
+.link-item:hover {
+  text-decoration: none; /* カーソルが重なったときに下線を非表示にする */
 }
 //ここまで投稿詳細ページ
 

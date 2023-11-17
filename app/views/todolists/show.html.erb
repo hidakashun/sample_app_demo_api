@@ -8,13 +8,15 @@
   <% end %>
   <h4>画像</h4>
   <% if @list.image.attached? %>
-    <%= link_to(image_tag(@list.image.variant(resize: '200x200')), @list.image, data: { lightbox: 'group',title: '投稿画像'}) %>
+    <%= link_to(image_tag(@list.image.variant(resize: '300x300')), @list.image, data: { lightbox: 'group',title: '投稿画像'}) %>
   <% end %>
   <div class="tag-box">
   <% @list.tags.each do |tag| %>
     <span class="label"><%= tag.name %></span>
   <% end %>
   </div>
-  <%= link_to "削除", destroy_todolist_path(@list.id), method: :delete, "data-confirm" => "本当に削除しますか?", class: "action-link" %>
-  <%= link_to "編集", edit_todolist_path(@list.id), class: "action-link" %>
+  <div class="action-link">
+    <%= link_to "削除", destroy_todolist_path(@list.id), method: :delete, "data-confirm" => "本当に削除しますか?", class: "link-item" %>
+    <%= link_to "編集", edit_todolist_path(@list.id), class: "link-item" %>
+  </div>
 </div>
