@@ -59,6 +59,7 @@ main {
   overflow: hidden;
 }
 
+
 video {
   position: absolute;
   top: 0;
@@ -120,7 +121,7 @@ video {
   font-size: 12px;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis;//テキストが要素の幅を超えた場合に省略記号（...）で表示される
 }
 
 .sentiment-score {
@@ -129,7 +130,7 @@ video {
   font-size: 14px;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis;//テキストが要素の幅を超えた場合に省略記号（...）で表示される
 }
 
 .list-title {
@@ -159,6 +160,21 @@ video {
   vertical-align: baseline;
   border-radius: .25em;
 }
+
+//投稿詳細ページ
+.show-title,
+.show-body {
+  overflow-wrap: break-word;
+  width: 300px;
+  max-height: 3em; /* 3行分の高さまで表示 */
+  overflow-y: auto; /* コンテンツが3行を超えたらスクロール表示 */
+}
+
+.action-link {
+  display: inline-block;
+  margin-right: 10px; /* リンク間の間隔を調整する場合は適切な値を設定 */
+}
+//ここまで投稿詳細ページ
 
 /*lightbox追記修正*/
 .lightboxOverlay{/*拡大時のモーダル*/

@@ -1,20 +1,20 @@
 <div class="text-center">
-  <h2>タイトル</h2>
-  <p><%= @list.title %></p>
-  <h2>本文</h2>
-  <p><%= @list.body %></p>
+  <h4>タイトル</h4>
+  <p class="show-title"><%= @list.title %></p>
+  <h4>本文</h4>
+  <p class="show-body"><%= @list.body %></p>
   <% if @list.score < -0.7 %>
     <p class="sentiment-score"><small>※削除推奨</small></p>
   <% end %>
-  <h2>画像</h2>
+  <h4>画像</h4>
   <% if @list.image.attached? %>
-    <%= link_to(image_tag(@list.image.variant(resize: '300x300')), @list.image, data: { lightbox: 'group',title: '投稿画像'}) %>
+    <%= link_to(image_tag(@list.image.variant(resize: '200x200')), @list.image, data: { lightbox: 'group',title: '投稿画像'}) %>
   <% end %>
   <div class="tag-box">
   <% @list.tags.each do |tag| %>
     <span class="label"><%= tag.name %></span>
   <% end %>
   </div>
-  <%= link_to "削除", destroy_todolist_path(@list.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-  <%= link_to "編集", edit_todolist_path(@list.id) %>
+  <%= link_to "削除", destroy_todolist_path(@list.id), method: :delete, "data-confirm" => "本当に削除しますか?", class: "action-link" %>
+  <%= link_to "編集", edit_todolist_path(@list.id), class: "action-link" %>
 </div>
